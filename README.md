@@ -1,73 +1,91 @@
-# Welcome to your Lovable project
+# Faith Oseni - Portfolio Website
 
-## Project info
+A modern, responsive portfolio website built with React, TypeScript, and Tailwind CSS.
 
-**URL**: https://lovable.dev/projects/f3183fbd-c957-42cb-99c0-86f05ecd86f4
+## 🚀 Features
 
-## How can I edit this code?
+- **Modern Design**: Clean, minimalist design with glassmorphism effects
+- **Responsive**: Fully responsive across all devices
+- **Animations**: Smooth animations using Framer Motion
+- **Custom Fonts**: Integration of custom typography
+- **Dark Theme**: Beautiful dark theme with gradient accents
+- **Interactive Elements**: Custom cursor and hover effects
 
-There are several ways of editing your application.
+## 🛠️ Tech Stack
 
-**Use Lovable**
+- **React 18** with TypeScript
+- **Vite** for fast development and building
+- **Tailwind CSS** for styling
+- **Framer Motion** for animations
+- **React Router** for navigation
+- **shadcn/ui** components
+- **Lucide React** for icons
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/f3183fbd-c957-42cb-99c0-86f05ecd86f4) and start prompting.
+## 📁 Project Structure
 
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+```
+src/
+├── components/
+│   ├── common/          # Global components (Navigation, CustomCursor)
+│   ├── home/           # Home page components
+│   └── ui/             # shadcn/ui components
+├── pages/              # Page components
+├── assets/             # Images and fonts
+├── hooks/              # Custom React hooks
+└── lib/                # Utility functions
 ```
 
-**Edit a file directly in GitHub**
+## 🎨 Design Features
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+- **Custom Typography**: Plain and Silkserif fonts
+- **Glassmorphism**: Modern glass effect components
+- **Gradient Text**: Beautiful gradient text effects
+- **Floating Elements**: Animated decorative elements
+- **Smooth Transitions**: Page transitions and hover effects
 
-**Use GitHub Codespaces**
+## 🚀 Getting Started
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+1. **Clone the repository**
+   ```bash
+   git clone <your-repo-url>
+   cd faith-portfolio
+   ```
 
-## What technologies are used for this project?
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-This project is built with:
+3. **Start development server**
+   ```bash
+   npm run dev
+   ```
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+4. **Build for production**
+   ```bash
+   npm run build
+   ```
 
-## How can I deploy this project?
+## 📱 Pages
 
-Simply open [Lovable](https://lovable.dev/projects/f3183fbd-c957-42cb-99c0-86f05ecd86f4) and click on Share -> Publish.
+- **Home**: Hero section with animated text and featured work
+- **About**: Personal story, experience timeline, and interests
+- **Skills**: Technical skills and expertise
+- **Projects**: Portfolio of work and case studies
+- **Contact**: Contact form and social links
+- **Blog**: Articles and insights
 
-## Can I connect a custom domain to my Lovable project?
+## 🎯 Customization
 
-Yes, you can!
+- Update personal information in component files
+- Replace images in `src/assets/`
+- Modify colors in `tailwind.config.ts`
+- Update fonts in `src/index.css`
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## 📄 License
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+This project is open source and available under the [MIT License](LICENSE).
+
+---
+
+**Built with ❤️ by Faith Oseni**
