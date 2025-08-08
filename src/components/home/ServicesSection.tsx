@@ -1,16 +1,20 @@
 import { motion } from 'framer-motion';
+import { Card, CardContent } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
 import { 
   Code, 
   Palette, 
   Smartphone, 
+  Globe, 
   Database, 
-  Cloud, 
-  Shield,
+  Shield, 
   Zap,
-  Users
+  Users,
+  TrendingUp,
+  Award
 } from 'lucide-react';
-import { Card, CardContent } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
+import learningImage from '@/assets/learning.jpg';
 
 const ServicesSection = () => {
   const services = [
@@ -197,20 +201,35 @@ const ServicesSection = () => {
           viewport={{ once: true }}
           transition={{ delay: 0.6 }}
         >
-          <Card className="glass p-8 max-w-2xl mx-auto">
+          <Card className="glass overflow-hidden max-w-2xl mx-auto group">
             <CardContent className="p-0">
-              <h3 className="text-heading mb-4 text-lift">Ready to Start Your Project?</h3>
-              <p className="text-body mb-6 text-lift">
-                Let's discuss your requirements and create something amazing together.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" className="group font-plain-regular">
-                  Get Started
-                  <Zap className="w-4 h-4 ml-2 group-hover:scale-110 transition-transform" />
-                </Button>
-                <Button variant="outline" size="lg" className="font-plain-regular">
-                  View Portfolio
-                </Button>
+              <div className="relative">
+                {/* Background Image */}
+                <div className="absolute inset-0">
+                  <img
+                    src={learningImage}
+                    alt="Ready to Start Your Project"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/50 to-transparent"></div>
+                </div>
+                
+                {/* Content */}
+                <div className="relative z-10 p-8">
+                  <h3 className="text-heading mb-4 text-lift text-white">Ready to Start Your Project?</h3>
+                  <p className="text-body mb-6 text-lift text-white/90">
+                    Let's discuss your requirements and create something amazing together.
+                  </p>
+                  <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                    <Button size="lg" className="group font-plain-regular">
+                      Get Started
+                      <Zap className="w-4 h-4 ml-2 group-hover:scale-110 transition-transform" />
+                    </Button>
+                    <Button variant="outline" size="lg" className="font-plain-regular border-white/30 text-white hover:bg-white hover:text-background">
+                      View Portfolio
+                    </Button>
+                  </div>
+                </div>
               </div>
             </CardContent>
           </Card>
