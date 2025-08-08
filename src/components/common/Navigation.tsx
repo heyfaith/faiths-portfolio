@@ -14,12 +14,9 @@ const Navigation = () => {
     { label: 'SKILLS', href: '/skills' },
     { label: 'PROJECTS', href: '/projects' },
     { label: 'CONTACT', href: '/contact' },
-    { label: 'BLOG', href: '/blog' },
   ];
 
   const socialLinks = [
-    { name: 'Dribbble', href: '#' },
-    { name: 'Behance', href: '#' },
     { name: 'Instagram', href: '#' },
     { name: 'Facebook', href: '#' },
     { name: 'Twitter', href: '#' },
@@ -180,7 +177,7 @@ const Navigation = () => {
                       transition={{ delay: 0.8 }}
                     >
                       <Mail className="w-4 h-4 mr-3" />
-                      <span>hello@portfolio.com</span>
+                      <span>osenif00@gmail.com</span>
                     </motion.div>
                     <motion.div
                       className="flex items-center text-sm text-muted-foreground font-plain-light text-caption"
@@ -189,7 +186,7 @@ const Navigation = () => {
                       transition={{ delay: 0.85 }}
                     >
                       <Phone className="w-4 h-4 mr-3" />
-                      <span>+1 (555) 123-4567</span>
+                      <span>+234 808 573 2327</span>
                     </motion.div>
                   </div>
                 </motion.div>
@@ -202,7 +199,7 @@ const Navigation = () => {
                 >
                   <h3 className="text-lg font-plain-regular mb-6 text-glow">Address</h3>
                   <p className="text-sm text-muted-foreground font-plain-light text-caption text-lift">
-                    Originally from San Francisco, working globally
+                    Lagos, Nigeria
                   </p>
                 </motion.div>
               </motion.div>

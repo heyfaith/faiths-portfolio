@@ -35,21 +35,21 @@ const Contact = () => {
     {
       icon: Mail,
       label: 'Email',
-      value: 'faith.oseni@example.com',
+      value: 'osenif00@gmail.com',
       type: 'email',
-      link: 'mailto:faith.oseni@example.com'
+      link: 'mailto:osenif00@gmail.com'
     },
     {
       icon: Phone,
       label: 'Phone',
-      value: '+1 (555) 123-4567',
+      value: '+234 808 573 2327',
       type: 'tel',
-      link: 'tel:+15551234567'
+      link: 'tel:+2348085732327'
     },
     {
       icon: MapPin,
       label: 'Location',
-      value: 'San Francisco, CA',
+      value: 'Lagos, Nigeria',
       type: 'text',
       link: '#'
     },
@@ -66,14 +66,14 @@ const Contact = () => {
     {
       icon: Github,
       label: 'GitHub',
-      url: 'https://github.com/faithoseni',
+      url: 'https://github.com/heyfaith',
       color: 'hover:text-gray-400',
       description: 'Check out my open source projects'
     },
     {
       icon: Linkedin,
       label: 'LinkedIn',
-      url: 'https://linkedin.com/in/faithoseni',
+      url: 'https://www.linkedin.com/in/oseni-faith',
       color: 'hover:text-blue-400',
       description: 'Connect with me professionally'
     },
@@ -97,27 +97,70 @@ const Contact = () => {
   ];
 
   const timezones = [
-    { name: 'PST (UTC-8)', current: true },
-    { name: 'EST (UTC-5)', current: false },
+    { name: 'WAT (UTC+1)', current: true },
     { name: 'GMT (UTC+0)', current: false },
-    { name: 'CET (UTC+1)', current: false }
+    { name: 'EST (UTC-5)', current: false },
+    { name: 'PST (UTC-8)', current: false }
   ];
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({ name: '', email: '', subject: '', message: '' });
-    }, 3000);
+    try {
+      // Use Formspree to send email directly to your inbox
+      const formDataToSend = new FormData();
+      formDataToSend.append('name', formData.name);
+      formDataToSend.append('email', formData.email);
+      formDataToSend.append('subject', formData.subject);
+      formDataToSend.append('message', formData.message);
+      formDataToSend.append('_subject', `Portfolio Contact: ${formData.subject}`);
+      formDataToSend.append('_replyto', formData.email);
+      formDataToSend.append('_format', 'html');
+      formDataToSend.append('_captcha', 'false');
+      
+      // You'll need to replace this with your actual Formspree endpoint
+      // Sign up at https://formspree.io and get your endpoint
+      // Replace 'YOUR_FORM_ID' with your actual form ID (e.g., 'xqkobqkq')
+      const response = await fetch('https://formspree.io/f/manblrao', {
+        method: 'POST',
+        body: formDataToSend,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+      
+      if (response.ok) {
+        setIsSubmitted(true);
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      } else {
+        throw new Error('Failed to send message');
+      }
+    } catch (error) {
+      console.error('Error sending message:', error);
+      // Fallback to mailto if Formspree fails
+      const emailSubject = encodeURIComponent(formData.subject);
+      const emailBody = encodeURIComponent(`
+Name: ${formData.name}
+Email: ${formData.email}
+
+Message:
+${formData.message}
+
+---
+Sent from Faith Oseni's Portfolio Website
+      `);
+      
+      const mailtoLink = `mailto:osenif00@gmail.com?subject=${emailSubject}&body=${emailBody}`;
+      window.open(mailtoLink, '_blank');
+    } finally {
+      setIsSubmitting(false);
+      
+      // Reset form after 3 seconds
+      setTimeout(() => {
+        setIsSubmitted(false);
+      }, 3000);
+    }
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -176,9 +219,9 @@ const Contact = () => {
                     transition={{ duration: 0.5 }}
                   >
                     <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
-                    <h3 className="text-xl font-semibold mb-2">Message Sent!</h3>
+                    <h3 className="text-xl font-semibold mb-2">Message Sent Successfully!</h3>
                     <p className="text-muted-foreground">
-                      Thank you for reaching out. I'll get back to you within 24 hours.
+                      Thank you for reaching out! Your message has been sent directly to my inbox. I'll get back to you within 24 hours.
                     </p>
                   </motion.div>
                 ) : (
@@ -417,7 +460,7 @@ const Contact = () => {
                   <div className="aspect-video bg-gradient-to-br from-primary/20 to-accent/20 rounded-lg flex items-center justify-center">
                     <div className="text-center">
                       <MapPin className="w-12 h-12 text-primary mx-auto mb-3" />
-                      <h3 className="font-semibold mb-1">San Francisco, CA</h3>
+                      <h3 className="font-semibold mb-1">Lagos, Nigeria</h3>
                       <p className="text-sm text-muted-foreground">Open to remote work worldwide</p>
                     </div>
                   </div>
@@ -433,7 +476,7 @@ const Contact = () => {
                     </div>
                     <div className="flex items-center justify-between p-3 rounded-lg bg-muted/20">
                       <span className="font-medium">Time Zone</span>
-                      <Badge variant="secondary">PST (UTC-8)</Badge>
+                      <Badge variant="secondary">WAT (UTC+1)</Badge>
                     </div>
                   </div>
                 </div>

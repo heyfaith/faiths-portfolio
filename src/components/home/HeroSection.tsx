@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronDown, Github, Linkedin, Mail, Twitter } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import heroImage from '@/assets/hero.jpg';
 
@@ -128,25 +129,29 @@ const HeroSection = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1.2 }}
             >
-              <Button 
-                variant="default" 
-                size="lg"
-                className="group relative overflow-hidden bg-primary hover:bg-primary-glow transition-all duration-300 font-plain-regular text-lg px-8 py-6"
-              >
-                <span className="relative z-10">View My Work</span>
-                <motion.div
-                  className="absolute inset-0 bg-gradient-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  whileHover={{ scale: 1.05 }}
-                />
-              </Button>
+              <Link to="/projects">
+                <Button 
+                  variant="default" 
+                  size="lg"
+                  className="group relative overflow-hidden bg-primary hover:bg-primary-glow transition-all duration-300 font-plain-regular text-lg px-8 py-6"
+                >
+                  <span className="relative z-10">View My Work</span>
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    whileHover={{ scale: 1.05 }}
+                  />
+                </Button>
+              </Link>
               
-              <Button 
-                variant="outline" 
-                size="lg"
-                className="border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 font-plain-regular text-lg px-8 py-6"
-              >
-                Get In Touch
-              </Button>
+              <Link to="/contact">
+                <Button 
+                  variant="outline" 
+                  size="lg"
+                  className="border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 font-plain-regular text-lg px-8 py-6"
+                >
+                  Get In Touch
+                </Button>
+              </Link>
             </motion.div>
 
             {/* Social Links */}
@@ -188,7 +193,7 @@ const HeroSection = () => {
               whileHover={{ scale: 1.02 }}
             >
               {/* Main Image */}
-              <div className="relative w-80 h-96 lg:w-96 lg:h-[500px] rounded-3xl overflow-hidden glass">
+              <div className="relative w-96 h-96 lg:w-[500px] lg:h-[600px] rounded-3xl overflow-hidden glass">
                 <img
                   src={heroImage}
                   alt="Faith Oseni - Full Stack Developer"

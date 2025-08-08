@@ -1,72 +1,89 @@
 import { motion } from 'framer-motion';
-import { Card, CardContent } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
 import { 
   Code, 
   Palette, 
   Smartphone, 
-  Globe, 
   Database, 
-  Shield, 
+  Cloud, 
+  Shield,
   Zap,
-  Users,
-  TrendingUp,
-  Award
+  Users
 } from 'lucide-react';
-import learningImage from '@/assets/learning.jpg';
+import { Card, CardContent } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import driveImage from '@/assets/drive.jpg';
+import supportImage from '@/assets/support.jpg';
+import satisfactionImage from '@/assets/satisfaction.jpg';
+import experienceImage from '@/assets/experience.jpg';
+import completedImage from '@/assets/completed.jpg';
 
 const ServicesSection = () => {
   const services = [
     {
-      icon: Code,
       title: 'Web Development',
-      description: 'Full-stack web applications with modern technologies like React, Node.js, and TypeScript.',
-      features: ['Responsive Design', 'Performance Optimization', 'SEO Friendly'],
-      experience: '5+ years'
+      experience: '3+ Years',
+      description: 'Full-stack development with modern technologies like React, Node.js, and TypeScript.',
+      features: ['Responsive Design', 'Performance Optimization', 'SEO Best Practices'],
+      icon: Code
     },
     {
-      icon: Smartphone,
-      title: 'Mobile Development',
-      description: 'Cross-platform mobile applications using React Native and native technologies.',
-      features: ['iOS & Android', 'Cross-platform', 'Native Performance'],
-      experience: '3+ years'
-    },
-    {
-      icon: Palette,
       title: 'UI/UX Design',
-      description: 'User-centered design solutions that enhance user experience and drive engagement.',
-      features: ['User Research', 'Prototyping', 'Design Systems'],
-      experience: '4+ years'
+      experience: '2+ Years',
+      description: 'Creating intuitive and beautiful user interfaces that enhance user experience.',
+      features: ['User Research', 'Wireframing', 'Prototyping'],
+      icon: Palette
     },
     {
-      icon: Database,
-      title: 'Backend Development',
-      description: 'Scalable backend solutions with robust APIs and database architecture.',
-      features: ['API Development', 'Database Design', 'Cloud Deployment'],
-      experience: '4+ years'
+      title: 'Mobile Development',
+      experience: '2+ Years',
+      description: 'Cross-platform mobile applications using React Native and Flutter.',
+      features: ['iOS & Android', 'Native Performance', 'App Store Optimization'],
+      icon: Smartphone
     },
     {
-      icon: Cloud,
-      title: 'DevOps & Cloud',
-      description: 'Infrastructure automation and cloud deployment solutions for modern applications.',
-      features: ['CI/CD Pipelines', 'AWS/Azure', 'Docker & Kubernetes'],
-      experience: '3+ years'
+      title: 'Database Design',
+      experience: '3+ Years',
+      description: 'Designing and optimizing database structures for scalable applications.',
+      features: ['SQL & NoSQL', 'Data Modeling', 'Performance Tuning'],
+      icon: Database
     },
     {
-      icon: Shield,
+      title: 'Cloud Solutions',
+      experience: '2+ Years',
+      description: 'Deploying and managing applications on cloud platforms like AWS and Azure.',
+      features: ['AWS Services', 'CI/CD Pipelines', 'Scalability'],
+      icon: Cloud
+    },
+    {
       title: 'Security & Testing',
-      description: 'Comprehensive security implementation and automated testing strategies.',
-      features: ['Security Audits', 'Automated Testing', 'Code Quality'],
-      experience: '4+ years'
+      experience: '3+ Years',
+      description: 'Implementing security best practices and comprehensive testing strategies.',
+      features: ['Security Audits', 'Unit Testing', 'Integration Testing'],
+      icon: Shield
     }
   ];
 
   const stats = [
-    { number: '50+', label: 'Projects Completed', icon: Zap },
-    { number: '5+', label: 'Years Experience', icon: Users },
-    { number: '100%', label: 'Client Satisfaction', icon: Shield },
-    { number: '24/7', label: 'Support Available', icon: Cloud }
+    { 
+      number: '50+', 
+      label: 'Projects Completed',
+      image: completedImage
+    },
+    { 
+      number: '5+', 
+      label: 'Years Experience',
+      image: experienceImage
+    },
+    { 
+      number: '100%', 
+      label: 'Client Satisfaction',
+      image: satisfactionImage
+    },
+    { 
+      number: '24/7', 
+      label: 'Support Available',
+      image: supportImage
+    }
   ];
 
   return (
@@ -126,13 +143,20 @@ const ServicesSection = () => {
               transition={{ delay: index * 0.1 }}
               whileHover={{ y: -5 }}
             >
-              <Card className="glass text-center p-6 hover:border-primary/30 transition-all duration-300">
+              <Card className="glass overflow-hidden hover:border-primary/30 transition-all duration-300 group">
                 <CardContent className="p-0">
-                  <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <stat.icon className="w-6 h-6 text-primary" />
+                  <div className="relative h-40 overflow-hidden">
+                    <img
+                      src={stat.image}
+                      alt={`${stat.label} - Faith's Services`}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/50 to-transparent"></div>
+                    <div className="absolute inset-0 flex flex-col justify-center items-center p-4">
+                      <div className="text-3xl font-bold text-white mb-2 font-plain-regular text-glow">{stat.number}</div>
+                      <p className="text-sm text-white/80 font-plain-light text-caption text-center">{stat.label}</p>
+                    </div>
                   </div>
-                  <div className="text-2xl font-bold text-primary mb-2 font-plain-regular text-glow">{stat.number}</div>
-                  <p className="text-sm text-muted-foreground font-plain-light text-caption">{stat.label}</p>
                 </CardContent>
               </Card>
             </motion.div>
@@ -201,34 +225,32 @@ const ServicesSection = () => {
           viewport={{ once: true }}
           transition={{ delay: 0.6 }}
         >
-          <Card className="glass overflow-hidden max-w-2xl mx-auto group">
+          <Card className="glass overflow-hidden p-8 max-w-2xl mx-auto relative">
             <CardContent className="p-0">
-              <div className="relative">
-                {/* Background Image */}
-                <div className="absolute inset-0">
-                  <img
-                    src={learningImage}
-                    alt="Ready to Start Your Project"
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/50 to-transparent"></div>
-                </div>
-                
-                {/* Content */}
-                <div className="relative z-10 p-8">
-                  <h3 className="text-heading mb-4 text-lift text-white">Ready to Start Your Project?</h3>
-                  <p className="text-body mb-6 text-lift text-white/90">
-                    Let's discuss your requirements and create something amazing together.
-                  </p>
-                  <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                    <Button size="lg" className="group font-plain-regular">
-                      Get Started
-                      <Zap className="w-4 h-4 ml-2 group-hover:scale-110 transition-transform" />
-                    </Button>
-                    <Button variant="outline" size="lg" className="font-plain-regular border-white/30 text-white hover:bg-white hover:text-background">
-                      View Portfolio
-                    </Button>
-                  </div>
+              {/* Background Image */}
+              <div className="absolute inset-0">
+                <img
+                  src={driveImage}
+                  alt="Background - Ready to Start Your Project"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-background/80 backdrop-blur-sm"></div>
+              </div>
+              
+              {/* Content */}
+              <div className="relative z-10">
+                <h3 className="text-heading mb-4 text-lift text-white">Ready to Start Your Project?</h3>
+                <p className="text-body mb-6 text-lift text-white/90">
+                  Let's discuss your requirements and create something amazing together.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <Button size="lg" className="group font-plain-regular">
+                    Get Started
+                    <Zap className="w-4 h-4 ml-2 group-hover:scale-110 transition-transform" />
+                  </Button>
+                  <Button variant="outline" size="lg" className="font-plain-regular bg-white/10 border-white/20 text-white hover:bg-white/20">
+                    View Portfolio
+                  </Button>
                 </div>
               </div>
             </CardContent>
